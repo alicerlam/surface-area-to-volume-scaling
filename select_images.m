@@ -7,7 +7,7 @@ addpath(genpath('/Volumes/My Passport/Light microscopy/normal_vs_polyploidy'))
 warning('off','all');
 dZ = 15; % Number of Z-slices per timepoint
 dT = 13; % Number of timepoints
-output_file = '/Users/allisonlam/Downloads/osmotic_shock_rep2_20_29.xls'; % Spreadsheet name
+output_file = '/Users/allisonlam/Downloads/osmotic_shock_rep1.xls'; % Spreadsheet name
 
 % Setup
 [listOfFolderNames, listOfFileNames, ~] = find_files("_R3D_D3D.dv");
@@ -22,9 +22,9 @@ slice_table.Properties.VariableNames = ["Filename", "Early-timepoint Z-slices", 
 empty_table.Properties.VariableNames = ["File Name", "Cell ID", "Radius", "Inner Baseline", "Outer Baseline", "Max Peak Height", "FWHM", "AUC"];
 [tables{:}] = deal(empty_table);
 
-%% Run me for every image
+%% Run me for every i
 % Parameters
-for imageNumber = 23:29 % starting image:end image in folder
+for imageNumber = 42:44 % starting image:end image in folder
 %imageNumber = 17; % Image in selected folder
 sensitivity = 0.97; % Circle finding sensitivity; decrease if too many circles, increase if not enough
 frame = floor(dZ/2); % Starting frame to find cells
@@ -106,6 +106,7 @@ elseif (size(centers,1) ~= last_size)
     checkcircles = 0;
     checkpair = 0;
 elseif (time == 4)
+    checkcircles = 0;
     checkpair = 0;
 end
 
@@ -192,7 +193,7 @@ elseif (time == 4)
     subimages = cell(size(centers, 1), 1);
     for j = 1:size(subimages, 1)
         buffer = radii(j) + 100;
-        subimages{j} = img(centers(j, 2) - buffer:centers(j, 2) + buffer, centers(j, 1) - buffer:centers(j, 1) + buffer, :);
+        subimages{j} = img(max(1, centers(j, 2) - buffer):min(centers(j, 2) + buffer, size(img, 2)), max(1, centers(j, 1) - buffer):min(centers(j, 1), size(img, 1)) + buffer, :);
     end
     
     figure();
@@ -278,7 +279,7 @@ for k = 1:360
     c = [c ci];
 end
 
- % make all true zeros into NaNs
+% make all true zeros into NaNs
     indices2 = find(abs(c)==0.0);
     c(indices2) = NaN;
     
