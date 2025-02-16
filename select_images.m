@@ -8,6 +8,7 @@ warning('off','all');
 dZ = 15; % Number of Z-slices per timepoint
 dT = 13; % Number of timepoints
 output_file = '/Users/allisonlam/Downloads/osmotic_shock_rep1.xls'; % Spreadsheet name
+late_timepoint = 4;
 
 % Setup
 [listOfFolderNames, listOfFileNames, ~] = find_files("_R3D_D3D.dv");
@@ -105,7 +106,7 @@ if (time == 1)
 elseif (size(centers,1) ~= last_size)
     checkcircles = 0;
     checkpair = 0;
-elseif (time == 4)
+elseif (time == late_timepoint)
     checkcircles = 0;
     checkpair = 0;
 end
@@ -185,7 +186,7 @@ if (time == 1)
     end
     starting_slices = input("Enter a list of Z-slices corresponding to each early-timepoint cell:");
     slices = starting_slices;
-elseif (time == 4)
+elseif (time == late_timepoint)
     imshow(slice_image);
     viscircles(centers, radii,'EdgeColor','b');
     
@@ -380,7 +381,7 @@ if (time == 1)
     all_centers{1} = centers;
     tables{1} = [tables{1}; frame1_export];
     writetable(tables{1}, output_file,'Sheet',1);
-elseif (time == 4)
+elseif (time == late_timepoint)
     profiles{2} = aligned(:, :, 2);
     all_radii{2} = radii;
     all_centers{2} = centers;
@@ -415,19 +416,19 @@ end
 end
 end
 
-%%
-data = profiles{1};
-figure();
-cells = size(data, 1);
-for i = 1:cells
-p = cell2mat(data(i, :));
-p = reshape(p, size(p, 1), [], 3);
-p = mean(p, 3);
-subplot(2, ceil(cells/2), i);
-plot(p);
-title(sprintf("Cell %d", i));
-end
-sgtitle("17-5")
+% %% Plot the profiles for an individual cell
+% data = profiles{1};
+% figure();
+% cells = size(data, 1);
+% for i = 1:cells
+% p = cell2mat(data(i, :));
+% p = reshape(p, size(p, 1), [], 3);
+% p = mean(p, 3);
+% subplot(2, ceil(cells/2), i);
+% plot(p);
+% title(sprintf("Cell %d", i));
+% end
+% sgtitle("17-5")
 
 %% Functions
 function [X, Y] = make_endpoints(xcenter, ycenter, radius)
