@@ -30,4 +30,5 @@ Open select_images.m in MATLAB2023a.
 # Cite as:
 Wu W, Lam AR, Suarez K, Smith GN, Duquette SM, Yu J, Mankus D, Bisher M, Lytton-Jean A, Manalis SR, Miettinen TP. Constant surface area-to-volume ratio during cell growth as a design principle in mammalian cells. bioRxiv [Preprint]. 2024 Jul 18:2024.07.02.601447. doi: 10.1101/2024.07.02.601447. PMID: 39005340; PMCID: PMC11244959.\
 \
-**CROIEditor.m:** Jonas Reber (2025). Multi ROI/Mask Editor Class (https://www.mathworks.com/matlabcentral/fileexchange/31388-multi-roi-mask-editor-class), MATLAB Central File Exchange. Retrieved February 16, 2025.
+**CROIEditor.m:** Jonas Reber (2025). Multi ROI/Mask Editor Class (https://www.mathworks.com/matlabcentral/fileexchange/31388-multi-roi-mask-editor-class), MATLAB Central File Exchange. Retrieved February 16, 2025.\
+<a href="https://doi.org/10.5281/zenodo.14878207"><img src="https://zenodo.org/badge/773596810.svg" alt="DOI"></a>
