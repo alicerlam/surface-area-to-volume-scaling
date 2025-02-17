@@ -1,5 +1,7 @@
+A MATLAB workflow for analyzing cell line profiles in light microscopy images in order to quanitfy plasma membrane volume relative to cell size. 
+
 # Overview
-A MATLAB workflow for analyzing cell line profiles in light microscopy images in order to quanitfy plasma membrane volume relative to cell size. This collection of scripts allows users to select one slice of interest of a fluorescent Z-stacked timelapse movie for each cell identified in the original image, before automatically calculating the radius of the cell, the background intensity inside and outside of the cell, and the maximum intensity/full-width-half-maximum intensity/area of the cell membrane.
+This collection of scripts allows users to select one slice of interest of a fluorescent Z-stacked timelapse movie for each cell identified in the original image, before automatically calculating the radius of the cell, the background intensity inside and outside of the cell, and the maximum intensity/full-width-half-maximum intensity/area of the cell membrane.
 
 # Installation:
 1. Download the repo using the green "Clone or download" button on this page.
